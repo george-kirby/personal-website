@@ -2,13 +2,48 @@
   <div>
     <div id="main">
       <section class="hero">
-        <h1>George Kirby</h1>
-        <h3>Web designer & developer</h3>
+        <h1 class="heading">George Kirby</h1>
+        <h3 class="subheading">Web designer & developer</h3>
       </section>
-      <section class="intro"></section>
-      <section class="projects"></section>
-      <section class="experience"></section>
-      <section class="interests"></section>
+      <section class="intro">
+        Full stack (front-end?) web developer (and designer) with a love of
+        using technology to simplify life’s everyday tasks. After tackling a
+        variety of roles, I have found my place in programming’s thoughtful
+        problem-solving. I’m now striving to work in a small team with open
+        communication, where I can keep learning quickly and deepen my skills.
+      </section>
+      <section class="tech-skills">
+        <h2>Technical Skills</h2>
+        <p>Vue, ?React, JavaScript, HTML, CSS, ?Rails, ?Ruby, ?SQL</p>
+        <!-- card for each tech, with logo, ?proficiency -->
+      </section>
+      <section class="projects">
+        <h2>Projects</h2>
+        <!-- card for each project -->
+        <div class="project-cards-container">
+          <div class="project-card"></div>
+          <div class="project-card"></div>
+          <div class="project-card"></div>
+        </div>
+      </section>
+      <section class="experience">
+        <h2>Experience</h2>
+        <!-- card for each experience -->
+        <div class="experience-cards-container">
+          <div class="experience-card"></div>
+          <div class="experience-card"></div>
+          <div class="experience-card"></div>
+        </div>
+      </section>
+      <section class="interests">
+        <h2>Interests</h2>
+        <!-- card for each interest -->
+        <div class="interest-cards-container">
+          <div class="interest-card"></div>
+          <div class="interest-card"></div>
+          <div class="interest-card"></div>
+        </div>
+      </section>
       <section class="themes"></section>
       <section class="contact"></section>
       <section class="feedback"></section>
@@ -145,6 +180,29 @@ section.hero {
   background-image: url("../../src/assets/freelance-stock-image.jpg");
   background-size: cover;
   background-position: center;
+
+  display: grid;
+  grid-template-columns: 1fr 10px 300px 10px 1fr;
+  grid-template-rows: 1fr 20px 10px 20px 40px;
+  grid-template-areas:
+    ". . . . ."
+    ". . heading . ."
+    ". . . . ."
+    ". . subheading . ."
+    ". . . . .";
+
+  color: white;
+  text-align: left;
+}
+
+.hero .heading {
+  grid-area: heading;
+  font-size: 25px;
+}
+
+.hero .subheading {
+  grid-area: subheading;
+  font-size: 16px;
 }
 
 div#vueTips {
