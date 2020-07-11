@@ -2,8 +2,10 @@
   <div>
     <div id="main">
       <section class="hero">
-        <h1 class="heading">George Kirby</h1>
-        <h3 class="subheading">Web designer & developer</h3>
+        <div class="content">
+          <h1 class="heading">George Kirby</h1>
+          <h3 class="subheading">Full stack software engineer</h3>
+        </div>
       </section>
       <section class="intro">
         Full stack (front-end?) web developer (and designer) with a love of
@@ -12,22 +14,67 @@
         problem-solving. I’m now striving to work in a small team with open
         communication, where I can keep learning quickly and deepen my skills.
       </section>
-      <section class="tech-skills">
+      <section class="skills">
         <h2>Technical Skills</h2>
         <p>Vue, ?React, JavaScript, HTML, CSS, ?Rails, ?Ruby, ?SQL</p>
         <!-- card for each tech, with logo, ?proficiency -->
+        <div class="skill-cards-container">
+          <div class="skill-card">
+            <p>Vue</p>
+            <img
+              class="logo"
+              src="../assets/logos/VueLogo.png"
+              alt="vue-logo"
+            />
+          </div>
+          <div class="skill-card"></div>
+          <div class="skill-card">
+            <p>JavaScript</p>
+            <img
+              class="logo"
+              src="../assets/logos/JavascriptLogo.svg"
+              alt="javascript-logo"
+            />
+          </div>
+          <div class="skill-card">
+            <p>HTML</p>
+            <img
+              class="logo"
+              src="../assets/logos/HTML5Logo.svg"
+              alt="html5-logo"
+            />
+          </div>
+          <div class="skill-card">
+            <p>CSS</p>
+            <img
+              class="logo"
+              src="../assets/logos/CSS3Logo.svg"
+              alt="css3-logo"
+            />
+          </div>
+          <div class="skill-card">
+            <p>React</p>
+            <img
+              class="logo"
+              src="../assets/logos/ReactLogo.svg"
+              alt="react-logo"
+            />
+          </div>
+          <div class="skill-card"></div>
+        </div>
       </section>
       <section class="projects">
         <h2>Projects</h2>
+        <p>card for each project</p>
         <!-- card for each project -->
         <div class="project-cards-container">
-          <div class="project-card"></div>
           <div class="project-card"></div>
           <div class="project-card"></div>
         </div>
       </section>
       <section class="experience">
         <h2>Experience</h2>
+        <p>card for each experience</p>
         <!-- card for each experience -->
         <div class="experience-cards-container">
           <div class="experience-card"></div>
@@ -37,6 +84,7 @@
       </section>
       <section class="interests">
         <h2>Interests</h2>
+        <p>card for each interest</p>
         <!-- card for each interest -->
         <div class="interest-cards-container">
           <div class="interest-card"></div>
@@ -177,35 +225,79 @@ a {
 
 section.hero {
   min-height: 400px;
-  background-image: url("../../src/assets/freelance-stock-image.jpg");
+  background-image: url("../assets/freelance-stock-image.jpg");
   background-size: cover;
   background-position: center;
 
   display: grid;
-  grid-template-columns: 1fr 10px 300px 10px 1fr;
-  grid-template-rows: 1fr 20px 10px 20px 40px;
+  grid-template-columns: 1fr 15px 300px 15px 1fr;
+  grid-template-rows: 1fr 50px 30px;
   grid-template-areas:
     ". . . . ."
-    ". . heading . ."
-    ". . . . ."
-    ". . subheading . ."
+    ". . content . ."
     ". . . . .";
-
   color: white;
   text-align: left;
 }
 
+.hero .content {
+  grid-area: content;
+}
+
 .hero .heading {
-  grid-area: heading;
   font-size: 25px;
 }
 
 .hero .subheading {
-  grid-area: subheading;
   font-size: 16px;
 }
 
 div#vueTips {
   margin-top: 100px;
+}
+
+section.intro {
+  margin: 20px auto;
+  padding: 10px;
+  max-width: 400px;
+}
+
+.skills .skill-card img.logo {
+  width: 50px;
+  height: 50px;
+}
+
+@media screen and (min-width: 500px) {
+  section.hero {
+    grid-template-rows: 1fr 80px 40px;
+  }
+
+  .hero .heading {
+    font-size: 35px;
+  }
+
+  .hero .subheading {
+    grid-area: subheading;
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  section.hero {
+    grid-template-columns: 1fr 15px 400px 15px 1fr;
+
+    grid-template-rows: 1fr 110px 1fr;
+  }
+
+  .hero .heading {
+    font-size: 52px;
+    text-align: center;
+  }
+
+  .hero .subheading {
+    grid-area: subheading;
+    font-size: 25px;
+    text-align: center;
+  }
 }
 </style>
