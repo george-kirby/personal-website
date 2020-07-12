@@ -7,71 +7,73 @@
           <h3 class="subheading">Full stack software engineer</h3>
         </div>
       </section>
-      <section class="intro">
-        Full stack (front-end?) web developer (and designer) with a love of
-        using technology to simplify life’s everyday tasks. After tackling a
-        variety of roles, I have found my place in programming’s thoughtful
-        problem-solving. I’m now striving to work in a small team with open
-        communication, where I can keep learning quickly and deepen my skills.
-      </section>
-      <section class="skills">
-        <h2>Technical Skills</h2>
-        <p>Vue, ?React, JavaScript, HTML, CSS, ?Rails, ?Ruby, ?SQL</p>
-        <!-- card for each tech, with logo, ?proficiency -->
-        <div class="skill-cards-container">
-          <div class="skill-card">
-            <p>Vue</p>
-            <img
-              class="logo"
-              src="../assets/logos/VueLogo.png"
-              alt="vue-logo"
-            />
+      <div id="main-body">
+        <section class="intro">
+          Full stack (front-end?) web developer (and designer) with a love of
+          using technology to simplify life’s everyday tasks. After tackling a
+          variety of roles, I have found my place in programming’s thoughtful
+          problem-solving. I’m now striving to work in a small team with open
+          communication, where I can keep learning quickly and deepen my skills.
+        </section>
+        <section class="skills">
+          <h2>Technical Skills</h2>
+          <!-- Vue, ?React, JavaScript, HTML, CSS, ?Rails, ?Ruby, ?SQL -->
+          <!-- card for each tech, with logo, ?proficiency -->
+          <div class="skill-cards-container">
+            <div class="skill-card">
+              <p>Vue</p>
+              <img
+                class="logo"
+                src="../assets/logos/VueLogo.svg"
+                alt="vue-logo"
+              />
+            </div>
+            <div class="skill-card"></div>
+            <div class="skill-card">
+              <p>React</p>
+              <img
+                class="logo"
+                src="../assets/logos/ReactLogo.svg"
+                alt="react-logo"
+              />
+            </div>
+            <div class="skill-card">
+              <p>JavaScript</p>
+              <img
+                class="logo"
+                src="../assets/logos/JavascriptLogo.svg"
+                alt="javascript-logo"
+              />
+            </div>
+            <div class="skill-card">
+              <p>HTML</p>
+              <img
+                class="logo"
+                src="../assets/logos/HTML5Logo.svg"
+                alt="html5-logo"
+              />
+            </div>
+            <div class="skill-card">
+              <p>CSS</p>
+              <img
+                class="logo"
+                src="../assets/logos/CSS3Logo.svg"
+                alt="css3-logo"
+              />
+            </div>
+            <div class="skill-card"></div>
           </div>
-          <div class="skill-card"></div>
-          <div class="skill-card">
-            <p>JavaScript</p>
-            <img
-              class="logo"
-              src="../assets/logos/JavascriptLogo.svg"
-              alt="javascript-logo"
-            />
+        </section>
+        <section class="projects">
+          <h2>Projects</h2>
+          <p>card for each project</p>
+          <!-- card for each project -->
+          <div class="project-cards-container">
+            <div class="project-card"></div>
+            <div class="project-card"></div>
           </div>
-          <div class="skill-card">
-            <p>HTML</p>
-            <img
-              class="logo"
-              src="../assets/logos/HTML5Logo.svg"
-              alt="html5-logo"
-            />
-          </div>
-          <div class="skill-card">
-            <p>CSS</p>
-            <img
-              class="logo"
-              src="../assets/logos/CSS3Logo.svg"
-              alt="css3-logo"
-            />
-          </div>
-          <div class="skill-card">
-            <p>React</p>
-            <img
-              class="logo"
-              src="../assets/logos/ReactLogo.svg"
-              alt="react-logo"
-            />
-          </div>
-          <div class="skill-card"></div>
-        </div>
-      </section>
-      <section class="projects">
-        <h2>Projects</h2>
-        <p>card for each project</p>
-        <!-- card for each project -->
-        <div class="project-cards-container">
-          <div class="project-card"></div>
-          <div class="project-card"></div>
-        </div>
-      </section>
+        </section>
+      </div>
       <section class="experience">
         <h2>Experience</h2>
         <p>card for each experience</p>
@@ -262,6 +264,13 @@ section.intro {
   max-width: 400px;
 }
 
+.skills .skill-card {
+  display: flex;
+  justify-content: space-between;
+  width: 160px;
+  margin: 5px 0;
+}
+
 .skills .skill-card img.logo {
   width: 50px;
   height: 50px;
@@ -298,6 +307,31 @@ section.intro {
     grid-area: subheading;
     font-size: 25px;
     text-align: center;
+  }
+
+  div#main-body {
+    display: grid;
+    grid-template-columns: 1fr 450px 50px 200px 1fr;
+    grid-template-rows: 30px 250px 30px 250px 30px;
+    grid-template-areas:
+      ". . . . ."
+      ". intro . skills ."
+      ". . . skills ."
+      ". projects . skills ."
+      ". . . . .";
+  }
+
+  section.intro {
+    grid-area: intro;
+    margin: 0;
+  }
+
+  section.skills {
+    grid-area: skills;
+  }
+
+  section.projects {
+    grid-area: projects;
   }
 }
 </style>
