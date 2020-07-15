@@ -30,15 +30,13 @@ export default {
   margin-block-end: 0em;
 }
 
-h2 {
+h2, h3, p {
   margin-block-start: 0em;
   margin-block-end: 0em;
 }
 
 h3 {
   font-size: 1em;
-  margin-block-start: 0em;
-  margin-block-end: 0em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   font-weight: bold;

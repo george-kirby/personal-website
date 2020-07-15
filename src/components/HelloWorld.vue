@@ -79,9 +79,31 @@
         <p>card for each experience</p>
         <!-- card for each experience -->
         <div class="experience-cards-container">
-          <div class="experience-card"></div>
-          <div class="experience-card"></div>
-          <div class="experience-card"></div>
+          <div class="experience-card">
+            <div class="inner">
+              <div class="front">
+                <h3 class="dates">Aug-Nov 2019</h3>
+                <p class="role">Software Engineering student</p>
+                <p class="organisation">Flatiron School</p>
+              </div>
+              <div class="back">
+                <ul>
+                  <li>
+                    Rapidly developed skills in a variety of technologies,
+                    including React and Rails, during an intense 15-week
+                    bootcamp.
+                  </li>
+                  <li>Built several projects in focused one-week sprints.</li>
+                  <li>
+                    Engaged in industry practices such as user testing and pair
+                    programming.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="experience-card"></div>
+          <div class="experience-card"></div> -->
         </div>
       </section>
       <section class="interests">
@@ -274,6 +296,42 @@ section.intro {
 .skills .skill-card img.logo {
   width: 50px;
   height: 50px;
+}
+
+.experience-card {
+  height: 200px;
+  width: 300px;
+  background-color: transparent;
+}
+
+.experience-card .inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border: solid 1px black;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.experience-card:hover .inner {
+  transform: rotateY(180deg);
+}
+
+.experience-card .front,
+.experience-card .back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+}
+
+.experience-card .front {
+  background: white;
+}
+
+.experience-card .back {
+  background: red;
+  transform: rotateY(180deg);
 }
 
 @media screen and (min-width: 500px) {
