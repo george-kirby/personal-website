@@ -20,48 +20,18 @@
           <!-- Vue, ?React, JavaScript, HTML, CSS, ?Rails, ?Ruby, ?SQL -->
           <!-- card for each tech, with logo, ?proficiency -->
           <div class="skill-cards-container">
-            <div class="skill-card">
-              <p>Vue</p>
+            <div
+              v-for="skill in techSkills"
+              :key="skill.name"
+              class="skill-card"
+            >
+              <p>{{ skill.name }}</p>
               <img
                 class="logo"
-                src="../assets/logos/VueLogo.svg"
-                alt="vue-logo"
+                :src="skill.logoPath"
+                :alt="skill.alt"
               />
             </div>
-            <div class="skill-card"></div>
-            <div class="skill-card">
-              <p>React</p>
-              <img
-                class="logo"
-                src="../assets/logos/ReactLogo.svg"
-                alt="react-logo"
-              />
-            </div>
-            <div class="skill-card">
-              <p>JavaScript</p>
-              <img
-                class="logo"
-                src="../assets/logos/JavascriptLogo.svg"
-                alt="javascript-logo"
-              />
-            </div>
-            <div class="skill-card">
-              <p>HTML</p>
-              <img
-                class="logo"
-                src="../assets/logos/HTML5Logo.svg"
-                alt="html5-logo"
-              />
-            </div>
-            <div class="skill-card">
-              <p>CSS</p>
-              <img
-                class="logo"
-                src="../assets/logos/CSS3Logo.svg"
-                alt="css3-logo"
-              />
-            </div>
-            <div class="skill-card"></div>
           </div>
         </section>
         <section class="projects">
@@ -82,9 +52,11 @@
           <div class="experience-card">
             <div class="inner">
               <div class="front">
-                <h3 class="dates">Aug-Nov 2019</h3>
-                <p class="role">Software Engineering student</p>
-                <p class="organisation">Flatiron School</p>
+                <div class="content">
+                  <h3 class="dates">August - November 2019</h3>
+                  <p class="role">Software Engineering student</p>
+                  <p class="organisation">Flatiron School</p>
+                </div>
               </div>
               <div class="back">
                 <ul>
@@ -97,6 +69,55 @@
                   <li>
                     Engaged in industry practices such as user testing and pair
                     programming.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="experience-card">
+            <div class="inner">
+              <div class="front">
+                <div class="content">
+                  <h3 class="dates">March 2018 - July 2019</h3>
+                  <p class="role">Teaching Assistant</p>
+                  <p class="organisation">
+                    Chapel End Junior Academy / Lathom Junior School, London
+                  </p>
+                </div>
+              </div>
+              <div class="back">
+                <ul>
+                  <li>
+                    Provided in-class support to low-attaining Year 6 children.
+                  </li>
+                  <li>
+                    Prepared and delivered own lessons to small focus groups in
+                    reading, arithmetic and handwriting.
+                  </li>
+                  <li>
+                    After SATs, worked 1-to-1 with SEN children, providing
+                    academic, emotional and physical support.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="experience-card">
+            <div class="inner">
+              <div class="front">
+                <div class="content">
+                  <h3 class="dates">October 2017 - February 2018</h3>
+                  <p class="role">Warehouse Assistant</p>
+                  <p class="organisation">
+                    A Warne & Co, London
+                  </p>
+                </div>
+              </div>
+              <div class="back">
+                <ul>
+                  <li>
+                    Worked in a plastics factory, moving flexibly between
+                    different roles as demand required.
                   </li>
                 </ul>
               </div>
@@ -223,11 +244,14 @@
 </template>
 
 <script>
+import { techSkills } from "../content/TechSkills";
+
 export default {
   name: "HelloWorld",
   data() {
     return {
       showTips: false,
+      techSkills,
     };
   },
 };
@@ -288,9 +312,15 @@ section.intro {
 
 .skills .skill-card {
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-between;
   width: 160px;
   margin: 5px 0;
+}
+
+.skills .skill-card p {
+  align-self: center;
+  font-weight: bold;
 }
 
 .skills .skill-card img.logo {
@@ -298,17 +328,26 @@ section.intro {
   height: 50px;
 }
 
+section.experience {
+  background-color: lightblue;
+}
+
+.experience-cards-container {
+  display: flex;
+}
+
 .experience-card {
-  height: 200px;
+  height: 170px;
   width: 300px;
   background-color: transparent;
+  margin: 10px;
 }
 
 .experience-card .inner {
   position: relative;
   height: 100%;
   width: 100%;
-  border: solid 1px black;
+  /* border: solid 1px black; */
   transition: transform 0.5s;
   transform-style: preserve-3d;
 }
@@ -329,8 +368,13 @@ section.intro {
   background: white;
 }
 
+.experience-card .front .content {
+  width: 220px;
+  margin: 40px auto;
+}
+
 .experience-card .back {
-  background: red;
+  background: white;
   transform: rotateY(180deg);
 }
 
