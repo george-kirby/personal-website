@@ -26,11 +26,7 @@
               class="skill-card"
             >
               <p>{{ skill.name }}</p>
-              <img
-                class="logo"
-                :src="skill.logoPath"
-                :alt="skill.alt"
-              />
+              <img class="logo" :src="skill.logoPath" :alt="skill.alt" />
             </div>
           </div>
         </section>
@@ -49,82 +45,24 @@
         <p>card for each experience</p>
         <!-- card for each experience -->
         <div class="experience-cards-container">
-          <div class="experience-card">
-            <div class="inner">
-              <div class="front">
-                <div class="content">
-                  <h3 class="dates">August - November 2019</h3>
-                  <p class="role">Software Engineering student</p>
-                  <p class="organisation">Flatiron School</p>
-                </div>
-              </div>
-              <div class="back">
-                <ul>
-                  <li>
-                    Rapidly developed skills in a variety of technologies,
-                    including React and Rails, during an intense 15-week
-                    bootcamp.
-                  </li>
-                  <li>Built several projects in focused one-week sprints.</li>
-                  <li>
-                    Engaged in industry practices such as user testing and pair
-                    programming.
-                  </li>
-                </ul>
-              </div>
+          <div
+            v-for="role in experience"
+            :key="role.title"
+            class="experience-card"
+          >
+            <div class="summary">
+              <h3 class="dates">{{ role.dates }}</h3>
+              <p class="role">{{ role.title }}</p>
+              <p class="organisation">{{ role.organisation }}</p>
+            </div>
+            <div class="detail">
+              <ul>
+                <li v-for="(bullet, i) in role.bullets" :key="i">
+                  {{ bullet }}
+                </li>
+              </ul>
             </div>
           </div>
-          <div class="experience-card">
-            <div class="inner">
-              <div class="front">
-                <div class="content">
-                  <h3 class="dates">March 2018 - July 2019</h3>
-                  <p class="role">Teaching Assistant</p>
-                  <p class="organisation">
-                    Chapel End Junior Academy / Lathom Junior School, London
-                  </p>
-                </div>
-              </div>
-              <div class="back">
-                <ul>
-                  <li>
-                    Provided in-class support to low-attaining Year 6 children.
-                  </li>
-                  <li>
-                    Prepared and delivered own lessons to small focus groups in
-                    reading, arithmetic and handwriting.
-                  </li>
-                  <li>
-                    After SATs, worked 1-to-1 with SEN children, providing
-                    academic, emotional and physical support.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="experience-card">
-            <div class="inner">
-              <div class="front">
-                <div class="content">
-                  <h3 class="dates">October 2017 - February 2018</h3>
-                  <p class="role">Warehouse Assistant</p>
-                  <p class="organisation">
-                    A Warne & Co, London
-                  </p>
-                </div>
-              </div>
-              <div class="back">
-                <ul>
-                  <li>
-                    Worked in a plastics factory, moving flexibly between
-                    different roles as demand required.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- <div class="experience-card"></div>
-          <div class="experience-card"></div> -->
         </div>
       </section>
       <section class="interests">
@@ -245,6 +183,7 @@
 
 <script>
 import { techSkills } from "../content/TechSkills";
+import { experience } from "../content/Experience";
 
 export default {
   name: "HelloWorld",
@@ -252,6 +191,7 @@ export default {
     return {
       showTips: false,
       techSkills,
+      experience,
     };
   },
 };
@@ -264,7 +204,6 @@ ul {
   padding: 0;
 }
 li {
-  display: inline-block;
   margin: 0 10px;
 }
 a {
@@ -334,34 +273,20 @@ section.experience {
 
 .experience-cards-container {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .experience-card {
-  height: 170px;
+  height: 70px;
   width: 300px;
-  background-color: transparent;
+  /* background-color: white; */
   margin: 10px;
+  overflow-y: hidden;
+  transition: 0.6s;
 }
 
-.experience-card .inner {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  /* border: solid 1px black; */
-  transition: transform 0.5s;
-  transform-style: preserve-3d;
-}
-
-.experience-card:hover .inner {
-  transform: rotateY(180deg);
-}
-
-.experience-card .front,
-.experience-card .back {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  backface-visibility: hidden;
+.experience-card:hover {
+  height: 300px;
 }
 
 .experience-card .front {
@@ -369,13 +294,16 @@ section.experience {
 }
 
 .experience-card .front .content {
-  width: 220px;
+  width: 225px;
   margin: 40px auto;
 }
 
-.experience-card .back {
-  background: white;
-  transform: rotateY(180deg);
+.experience-card .front .content p {
+  margin: 5px 0;
+}
+
+.experience-card .back li {
+  list-style: disc;
 }
 
 @media screen and (min-width: 500px) {
