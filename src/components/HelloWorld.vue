@@ -49,6 +49,8 @@
             v-for="role in experience"
             :key="role.title"
             class="experience-card"
+            :class="{ active: isActive(role.title) }"
+            v-on:click="toggleActive(role.title)"
           >
             <div class="summary">
               <h3 class="dates">{{ role.dates }}</h3>
@@ -192,7 +194,20 @@ export default {
       showTips: false,
       techSkills,
       experience,
+      activeExperiences: ["Software Engineering student", "Teaching Assistant"],
     };
+  },
+  methods: {
+    isActive(title) {
+      return this.activeExperiences.includes(title);
+    },
+    toggleActive(title) {
+      this.activeExperiences.includes(title)
+        ? (this.activeExperiences = this.activeExperiences.filter(
+            (el) => el != title
+          ))
+        : this.activeExperiences.push(title);
+    },
   },
 };
 </script>
@@ -278,14 +293,16 @@ section.experience {
 
 .experience-card {
   height: 70px;
-  width: 300px;
+  width: 280px;
   /* background-color: white; */
   margin: 10px;
   overflow-y: hidden;
   transition: 0.6s;
+  border: solid 1px black;
 }
 
-.experience-card:hover {
+/* .experience-card:hover, */
+.experience-card.active {
   height: 300px;
 }
 
