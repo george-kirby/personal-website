@@ -42,14 +42,13 @@
       </div>
       <section class="experience">
         <h2>Experience</h2>
-        <p>card for each experience</p>
         <!-- card for each experience -->
         <div class="experience-cards-container">
           <div
             v-for="role in experience"
             :key="role.title"
             class="experience-card"
-            :class="{ active: isActive(role.title) }"
+            :class="{ active: isActive(role.title), long: role.bullets.length > 1 }"
             v-on:click="toggleActive(role.title)"
           >
             <div class="summary">
@@ -194,7 +193,7 @@ export default {
       showTips: false,
       techSkills,
       experience,
-      activeExperiences: ["Software Engineering student", "Teaching Assistant"],
+      activeExperiences: [],
     };
   },
   methods: {
@@ -301,9 +300,12 @@ section.experience {
   border: solid 1px black;
 }
 
-/* .experience-card:hover, */
 .experience-card.active {
-  height: 300px;
+  height: 160px;
+}
+
+.experience-card.long.active {
+  height: 350px;
 }
 
 .experience-card .front {
