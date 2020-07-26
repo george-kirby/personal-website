@@ -8,6 +8,11 @@
         </div>
       </section>
       <div id="main-body">
+        <section class="contact">
+          <div class="email">{{ contact.email }}</div>
+          <div class="mobile-number">{{ contact.mobile }}</div>
+          <div class="github">{{ contact.github }}</div>
+        </section>
         <section class="intro">
           Full stack (front-end?) web developer (and designer) with a love of
           using technology to simplify life’s everyday tasks. After tackling a
@@ -48,7 +53,10 @@
             v-for="role in experience"
             :key="role.title"
             class="experience-card"
-            :class="{ active: isActive(role.title), long: role.bullets.length > 1 }"
+            :class="{
+              active: isActive(role.title),
+              long: role.bullets.length > 1,
+            }"
             v-on:click="toggleActive(role.title)"
           >
             <div class="summary">
@@ -68,13 +76,12 @@
       </section>
       <section class="interests">
         <h2>Interests</h2>
-        <p>card for each interest</p>
-        <!-- card for each interest -->
-        <div class="interest-cards-container">
-          <div class="interest-card"></div>
-          <div class="interest-card"></div>
-          <div class="interest-card"></div>
-        </div>
+        <p>
+          In my free time, I’m most likely to be found playing football - Sunday
+          League is the highlight of my week! Otherwise, I’ll be escaping London
+          for some fresh air, buried in a fantasy novel, or catching up with
+          friends.
+        </p>
       </section>
       <section class="themes"></section>
       <section class="contact"></section>
@@ -183,6 +190,7 @@
 </template>
 
 <script>
+import { contact } from "../content/Contact";
 import { techSkills } from "../content/TechSkills";
 import { experience } from "../content/Experience";
 
@@ -191,6 +199,7 @@ export default {
   data() {
     return {
       showTips: false,
+      contact,
       techSkills,
       experience,
       activeExperiences: [],
@@ -291,17 +300,26 @@ section.experience {
 }
 
 .experience-card {
-  height: 70px;
+  height: 85px;
   width: 280px;
-  /* background-color: white; */
+  background-color: white;
   margin: 10px;
+  padding: 5px 10px;
   overflow-y: hidden;
   transition: 0.6s;
-  border: solid 1px black;
+  cursor: pointer;
+}
+
+.experience-card .detail {
+  display: none;
 }
 
 .experience-card.active {
   height: 160px;
+}
+
+.experience-card.active .detail {
+  display: block
 }
 
 .experience-card.long.active {

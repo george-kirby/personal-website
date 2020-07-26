@@ -1,5 +1,16 @@
 const experience = [
   {
+    dates: "Jan 2020 - present",
+    title: "Junior Frontend Developer",
+    organisation: "Beds and Bars",
+    bullets: [
+      "Vue",
+      "working closely with lead designer to create engaging, responsive webpages",
+      "Created new confirmation email template using mjml",
+      "Sprint planning sessions and delivering on agreed tasks to deadline",
+    ],
+  },
+  {
     dates: "Aug - Nov 2019",
     title: "Software Engineering student",
     organisation: "Flatiron School",
