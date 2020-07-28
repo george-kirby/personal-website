@@ -4,10 +4,9 @@ const experience = [
     title: "Junior Frontend Developer",
     organisation: "Beds and Bars",
     bullets: [
-      "Vue",
-      "working closely with lead designer to create engaging, responsive webpages",
+      "Working closely with lead designer to build engaging, responsive webpages in Vue",
       "Created new confirmation email template using mjml",
-      "Sprint planning sessions and delivering on agreed tasks to deadline",
+      "Participating in sprint planning sessions, and delivering on agreed tasks to deadline",
     ],
   },
   {
