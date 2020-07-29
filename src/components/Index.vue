@@ -7,8 +7,9 @@
           <h3 class="subheading">Full stack software engineer</h3>
         </div>
       </section>
-      <div id="main-body">
+      <div id="at-a-glance">
         <section class="contact">
+          <!-- icon for each -->
           <div class="email">{{ contact.email }}</div>
           <div class="mobile-number">{{ contact.mobile }}</div>
           <div class="github">{{ contact.github }}</div>
@@ -35,16 +36,16 @@
             </div>
           </div>
         </section>
-        <section class="projects">
-          <h2>Projects</h2>
-          <p>card for each project</p>
-          <!-- card for each project -->
-          <div class="project-cards-container">
-            <div class="project-card"></div>
-            <div class="project-card"></div>
-          </div>
-        </section>
       </div>
+      <section class="projects">
+        <h2>Projects</h2>
+        <p>card for each project</p>
+        <!-- card for each project -->
+        <div class="project-cards-container">
+          <div class="project-card"></div>
+          <div class="project-card"></div>
+        </div>
+      </section>
       <section class="experience">
         <h2>Experience</h2>
         <!-- card for each experience -->
@@ -247,6 +248,8 @@ section.hero {
     ". . content . ."
     ". . . . .";
   color: white;
+  filter: grayscale(1);
+
   text-align: left;
 }
 
@@ -319,7 +322,7 @@ section.experience {
 }
 
 .experience-card.active .detail {
-  display: block
+  display: block;
 }
 
 .experience-card.long.active {
@@ -376,16 +379,21 @@ section.experience {
     text-align: center;
   }
 
-  div#main-body {
+  div#at-a-glance {
     display: grid;
     grid-template-columns: 1fr 450px 50px 200px 1fr;
-    grid-template-rows: 30px 250px 30px 250px 30px;
+    grid-template-rows: 30px 100px 30px 220px 30px;
     grid-template-areas:
       ". . . . ."
-      ". intro . skills ."
+      ". contact . skills ."
       ". . . skills ."
-      ". projects . skills ."
+      ". intro . skills ."
       ". . . . .";
+  }
+
+  section.contact {
+    grid-area: contact;
+    padding: 10px;
   }
 
   section.intro {
@@ -395,10 +403,6 @@ section.experience {
 
   section.skills {
     grid-area: skills;
-  }
-
-  section.projects {
-    grid-area: projects;
   }
 }
 </style>
